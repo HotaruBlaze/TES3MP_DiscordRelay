@@ -27,6 +27,7 @@ Ensure that your pull requests/issues follow the same requirements as [Script Lo
 
 - Copy the folders `data/`, `lib/` and `script/` into `mp-stuff` (or Corescripts folder).
 - Edit **`data/discord_config.json`**
+- Add `discordRelay` to **`data/scripts.json`**
 
 # How to get a channel ID
 
