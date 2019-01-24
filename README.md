@@ -1,7 +1,12 @@
 
-# Discord Relay for TES3MP 0.7.0
-
+# Discord Relay for TES3MP 0.7.0 (Webhook Branch)
  This is one of my first attempts at scripting for TES3MP and Lua
+
+## **(Read note below)**
+
+**Note: Due to issues talking to Discord Gateway easily to keep a bot online due to lua not supporting wss (weboscket) at this time**
+
+**This branch has been tweaked to use webhooks as an "Lazy and quick" working alternative, while a more elegant solution is planned**
 
 # Contributing
 
@@ -29,44 +34,20 @@ Ensure that your pull requests/issues follow the same requirements as [Script Lo
 - Edit **`data/discord_config.json`**
 - Add `discordRelay` to **`data/scripts.json`**
 
-# How to get a channel ID
+# How to create a webhook
+1) Create or select the channel you would like to use
 
-1) Open your **Client** settings and go to **`Appearence`**.
+2) Right click and edit the channel
+>![webhook-img1](https://img.fluttershub.com/qG1EpNjRnY7E.png)
 
-2) Scroll down to Advanced and enable **`Developer Mode`**.
->![developermode_img](https://img.fluttershub.com/6ajUxrQBcTef.png)
+3) Select webhook from the side menu
+>![webhook-img2](https://img.fluttershub.com/9rIuKMCh53j9.png)
 
-3) Now simply right click a channel and select **`Copy ID`**
->![id_img](https://img.fluttershub.com/Udkgniqn8QP0.png)
+4) Create a webhook and customize it as you see fit
+>![webhook-img3](https://img.fluttershub.com/xvsyAKXYCQAo.png)
+### **Note: At this time the bot's name is set to the players name with no configuration option, So the name does not matter**
 
-4) Paste the ID into the corresponding channel in **`discord_config.json`**
+5) Add the webhook to **`data/discord_config.json`**
 
-___
-
-# How to create a Discord Bot
-
-1) Create a new application [here](https://discordapp.com/developers/applications/).
-
-2) Go to Bot and click "Add Bot".
-
-3) Click **` Click to Reveal Token`** and copy it for later.
->![token_img](https://img.fluttershub.com/f1q8DPpxC3a1.png)
- 
-
-4) Go to OAuth2 and select the **`bot`** scope and **`Send Messages`** from Bot Permissions
->![scope_img1](https://img.fluttershub.com/LqTv8FyN1n8U.png)
-
->![perm_img1](https://img.fluttershub.com/oJXH0tJ199KF.png)
-
-  
-
-5) Copy the url provided by scopes and paste it into your browser
->![scope_img2](https://img.fluttershub.com/uXQR1nJ57UfH.png)
-
-  
-
-6) Select your server from the dropdown and hit **`Authorize`**
->![invite_img](https://img.fluttershub.com/M7XvrIMezdiX.png)
-
-7) Now edit your **`data/discord_config.json`** and put your token from earlier into token
-![configtoken_img](https://img.fluttershub.com/iNKjVnctMeVs.png)
+6) You should see something like below when a player types ingame.
+>![webhook-img4](https://img.fluttershub.com/AUpi2uffuJZz.png)

@@ -1,16 +1,9 @@
 {
     "debug": false,
-    "token": "",
-    "enableLocal": true, // Nicknames from RPChat Currently dont show, and will show the original players name
-    "local_Channel": "",
-    "enableOOC": false, // Enable OOC aka print anything after //
-    "ooc_Channel": "",
-    "oocPrefix": "[OOC]",
-    "enableLOOC": false, // Enable LOOC aka print anything after ///
-    "loocPrefix": "[LOOC]",
-    "looc_Channel": "",
-    "showStaffRanks": false,
-    "ModeratorPrefix":"[Mod]",
-    "AdminPrefix":"[Admin]",
-    "OwnerPrefix":"[Owner]"
+    "enableLocal": true,
+    "local_webhook": "",
+    "enableOOC": false,
+    "ooc_webhook": "",
+    "enableLOOC": false,
+    "looc_webhook": ""
 }
