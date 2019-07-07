@@ -4,7 +4,8 @@
 
 ## **(Read note below)**
 
-**Note: Due to issues talking to Discord Gateway easily to keep a bot online due to lua not supporting wss (weboscket) at this time**
+**Note: Due to limiations with Lua, we are unable to use wss (websockets), This prevents the ability to have Discord -> tes3mp chat.**
+**You can follow progress here https://github.com/MrFlutters/TES3MP_DiscordRelay/issues/1**
 
 **This branch has been tweaked to use webhooks as an "Lazy and quick" working alternative, while a more elegant solution is planned**
 
