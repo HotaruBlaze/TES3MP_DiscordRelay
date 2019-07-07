@@ -14,7 +14,7 @@ DiscordRelay.defaultConfig = {
 
 DiscordRelay.config = DataManager.loadConfiguration(DiscordRelay.scriptName, DiscordRelay.defaultConfig)
 
-json = require("cjson")
+json = require("dkjson")
 https = require("ssl.https")
 
 local lastMessage = ""
