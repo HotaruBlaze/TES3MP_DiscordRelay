@@ -1,9 +1,0 @@
-{
-    "debug": false,
-    "enableLocal": true,
-    "local_webhook": "",
-    "enableOOC": false,
-    "ooc_webhook": "",
-    "enableLOOC": false,
-    "looc_webhook": ""
-}

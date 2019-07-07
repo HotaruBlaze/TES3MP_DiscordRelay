@@ -12,8 +12,6 @@
 
 Feel free to submit Issues and Pull Requests. 
 
-Ensure that your pull requests/issues follow the same requirements as [Script Loader](https://github.com/SaintWish/tes3mp_scriptloader#commits-and-bug-reports). For reference...
-
 >Consistent tabulation  
 >lowerCamelCase for local and global variables  
 >UpperCamelCase for function names.
@@ -22,17 +20,16 @@ Ensure that your pull requests/issues follow the same requirements as [Script Lo
 
  - Currently, this only sends chat to discord `(TES3MP -> Discord)`. It does not show discord messages in-game `(Discord -> TES3MP)`
  - Designed for [rpChat](https://github.com/SaintWish/tes3mp_scriptloader/blob/master/scripts/addons/rpChat.lua) primarily, however Local/Normal chat will still work even if you don't have rpChat.
-- This does not work on Linux yet. Unfortunately, Discord requires us to use SSL, and that requires luasec 0.6 and/or 0.7, I currently dont have the library files required for linux
+- This does not work on Windows yet. Unfortunately, Discord requires us to use SSL and we use luasec 0.8, I currently dont have the library files required for windows
  
-# Requirements
-
-- [Script Loader](https://github.com/SaintWish/tes3mp_scriptloader)  
-
 # Installation
 
-- Copy the folders `data/`, `lib/` and `script/` into `mp-stuff` (or Corescripts folder).
-- Edit **`data/discord_config.json`**
-- Add `discordRelay` to **`data/scripts.json`**
+- Copy the folders `lib/` and `script/` into `server` (or Corescripts folder).
+- Add `DiscordRelay = require("custom/DiscordRelay/main")` to `scripts/customScripts.lua`
+- Start your TES3MP server, You should see <br> `[ERR]: [Script]: [DiscordRelay] webhook_url is blank or empty.` <br> if not you have not followed the steps correctly or have an compatability issue
+
+- Edit config found at **`data/custom/__config_DiscordRelay.json`**
+
 
 # How to create a webhook
 1) Create or select the channel you would like to use
