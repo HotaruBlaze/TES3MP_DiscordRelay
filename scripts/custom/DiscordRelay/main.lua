@@ -72,8 +72,6 @@ function DiscordRelay.Discord_PingTest()
 end
 
 function DiscordRelay.Discord_SendMessage(eventStatus, pid, message)
-    -- if (message == "/shrug") then end
-
     if message:sub(1, 1) == "/" then
         return
     else
@@ -93,9 +91,7 @@ function DiscordRelay.Discord_SendMessage(eventStatus, pid, message)
             ["content"] = tostring(message),
             ["username"] = tostring(Playername)
         }
-        print(lastMessageSenderPID.." : "..lastMessage)
         if tostring(message) ~= lastMessage or Players[pid].data.settings.staffRank > 0 then
-            -- lastMessage = tostring(message)
             if (lastMessageSenderPID == pid and lastMessage == tostring(message) and (Players[pid].data.settings.staffRank < 0)) then
                 print("Assuming is spam, Blocking message to discord.")
                 lastMessage = tostring(message)
