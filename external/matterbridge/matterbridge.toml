@@ -1,0 +1,21 @@
+[discord.irc]
+Token=""
+Server="" # picked from guilds the bot is connected to
+RemoteNickFormat="[{NICK}] "
+
+[irc]
+    [irc.discord]
+    Server="InspIRCd:6667"
+    Nick="Discord"
+    RemoteNickFormat="{NICK}: "
+
+[[gateway]]
+name="dev-tes3mp-relay"
+enable=true
+    [[gateway.inout]]
+    account="irc.discord"
+    channel="#dev-tes3mp"
+    
+    [[gateway.inout]]
+    account = "discord.irc"
+    channel = "server-chat"

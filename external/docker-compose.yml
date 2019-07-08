@@ -1,0 +1,49 @@
+version: "3"
+
+services:
+
+  InspIRCd:
+    image: inspircd/inspircd-docker
+    ports:
+      - 6697:6697 #SSL
+      - 6667:6667 #Plaintext
+    restart: unless-stopped
+    networks:
+      - irc_net
+    container_name: InspIRCd
+    environment:
+      # General Configuration https://github.com/inspircd/inspircd-docker/blob/master/README.md#generated-configuration
+      INSP_NET_SUFFIX: 
+      INSP_NET_NAME:
+      INSP_SERVER_NAME: 
+      INSP_ADMIN_NAME: 
+      INSP_ADMIN_NICK: 
+      INSP_ADMIN_EMAIL:
+      INSP_ENABLE_DNSBL: "true"
+      INSP_CONNECT_PASSWORD: 
+      # Set these if you plan on using SSL
+      INSP_TLS_CN: 
+      INSP_TLS_MAIL: 
+      INSP_TLS_UNIT: 
+      INSP_TLS_ORG: 
+      INSP_TLS_LOC:
+      INSP_TLS_STATE: 
+      INSP_TLS_COUNTRY: 
+      INSP_TLS_DURATION:
+    volumes:
+      - irc_data:/inspircd/conf/
+
+  matterbridge:
+    image: 42wim/matterbridge:1.15.0
+    restart: unless-stopped
+    networks:
+      - irc_net
+    container_name: matterbridge
+    volumes:
+      - ./matterbridge/matterbridge.toml:/matterbridge.toml
+      
+networks:
+  irc_net:
+
+volumes:
+  irc_data:

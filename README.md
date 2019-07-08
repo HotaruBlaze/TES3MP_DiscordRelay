@@ -1,51 +1,33 @@
 
-# Discord Relay for TES3MP 0.7.0 (Webhook Branch)
- This is one of my first attempts at scripting for TES3MP and Lua
+# Discord Relay for TES3MP 0.7.0-alpha (irc-relay Branch)
+ This branch uses [matterbridge](https://www.github.com/42wim/matterbridge) and an updated IrcBridge for 0.7.0-alpha
 
-## **(Read note below)**
+#### Note: This is currently the only branch that offers tes3mp <-> discord cross-chat.
 
-**Note: Due to limiations with Lua, we are unable to use wss (websockets), This prevents the ability to have Discord -> tes3mp chat.**
-**You can follow progress here https://github.com/MrFlutters/TES3MP_DiscordRelay/issues/1**
+# READ THIS / WARNINGS
 
-**This branch has been tweaked to use webhooks as an "Lazy and quick" working alternative, while a more elegant solution is planned**
+ - This specific branch is **not** designed to be user-friendly, you are expected to understand IRC and Discord Bot Creation/Usage <br>
+ - I provide a docker-compose example of how you could deploy this in `external/`
+ - You do not have to run your own IRC server, you **can** use a public one but not recommend. 
+ - **matterbridge is required.**
+ - This repo only provides Linux compatible libarys, you will need to source windows ones yourself.
 
-# Contributing
+## Instalation settings for tes3mp.
+
+- Copy the folders and files located in `tes3mp/` and drop them into your `server (or coreScripts)` folder.
+- After first launch of the server, a configuration file will be generated in `data/custom/` called `__config_IrcBridge.json`
+- if you see the following `[ERR]: [Script]: IrcBridge has not been configured correctly`.<br> a configuration file already exists, however is missing values.
+*(nick, server and channel are required.)*
+
+## Credits
+- TeamFOSS for creating a IrcBridge used for tes3mp 0.6.1 located [***here***](https://github.com/TES3MP-TeamFOSS/Scripts/tree/master/0.6.1/scripts/IrcBridge)
+- Hotaru / MrFlutters for updating the Script for 0.7.0
+- matterbridge for making this setup possible
+
+ # Contributing
 
 Feel free to submit Issues and Pull Requests. 
 
 >Consistent tabulation  
 >lowerCamelCase for local and global variables  
 >UpperCamelCase for function names.
-
-# Warnings / Known issues
-
- - Currently, this only sends chat to discord `(TES3MP -> Discord)`. It does not show discord messages in-game `(Discord -> TES3MP)`
- - Designed for [rpChat](https://github.com/SaintWish/tes3mp_scriptloader/blob/master/scripts/addons/rpChat.lua) primarily, however Local/Normal chat will still work even if you don't have rpChat.
-- This does not work on Windows yet. Unfortunately, Discord requires us to use SSL and we use luasec 0.8, I currently dont have the library files required for windows
- 
-# Installation
-
-- Copy the folders `lib/` and `script/` into `server` (or Corescripts folder).
-- Add `DiscordRelay = require("custom/DiscordRelay/main")` to `scripts/customScripts.lua`
-- Start your TES3MP server, You should see <br> `[ERR]: [Script]: [DiscordRelay] webhook_url is blank or empty.` <br> if not you have not followed the steps correctly or have an compatability issue
-
-- Edit config found at **`data/custom/__config_DiscordRelay.json`**
-
-
-# How to create a webhook
-1) Create or select the channel you would like to use
-
-2) Right click and edit the channel
->![webhook-img1](https://img.fluttershub.com/qG1EpNjRnY7E.png)
-
-3) Select webhook from the side menu
->![webhook-img2](https://img.fluttershub.com/9rIuKMCh53j9.png)
-
-4) Create a webhook and customize it as you see fit
->![webhook-img3](https://img.fluttershub.com/xvsyAKXYCQAo.png)
-### **Note: At this time the bot's name is set to the players name with no configuration option, So the name does not matter**
-
-5) Add the webhook to **`data/discord_config.json`**
-
-6) You should see something like below when a player types ingame.
->![webhook-img4](https://img.fluttershub.com/AUpi2uffuJZz.png)
