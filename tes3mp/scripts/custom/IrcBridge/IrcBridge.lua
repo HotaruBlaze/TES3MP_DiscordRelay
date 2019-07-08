@@ -83,8 +83,12 @@ end
 customEventHooks.registerValidator("OnPlayerSendMessage", function(eventStatus, pid, message)
 	CharName = tes3mp.GetName(pid)
 	message = tostring(message)
-
-	IrcBridge.SendMessage(CharName .. ": " .. message)
+	
+	if message:sub(1, 1) == "/" then
+		return
+	else
+		IrcBridge.SendMessage(CharName .. ": " .. message)
+	end
 end)
 
 customEventHooks.registerValidator("OnServerInit", function()
