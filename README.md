@@ -15,6 +15,7 @@
 ## Instalation settings for tes3mp.
 
 - Copy the folders and files located in `tes3mp/` and drop them into your `server (or coreScripts)` folder.
+- add `IrcBridge = require("custom/IrcBridge/IrcBridge")` to `server/scripts/customScripts.lua`
 - After first launch of the server, a configuration file will be generated in `data/custom/` called `__config_IrcBridge.json`
 - if you see the following `[ERR]: [Script]: IrcBridge has not been configured correctly`.<br> a configuration file already exists, however is missing values.
 *(nick, server and channel are required.)*
