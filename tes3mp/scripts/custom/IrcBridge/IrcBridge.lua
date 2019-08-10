@@ -298,7 +298,6 @@ customEventHooks.registerValidator("OnServerInit", function()
 	if IrcBridge.config.enableAlert == true then
 		local message = "[TES3MP]"
 		local message = message .. " Server is online. :yellow_heart:"
-		-- local message = "https://cdn.discordapp.com/attachments/546181963468242974/609529190278103041/Server_-_Online.png"
 		IrcBridge.discordAlert(message)
 	end
 
@@ -307,13 +306,6 @@ end)
 customEventHooks.registerHandler("OnPlayerAuthentified", function(eventStatus, pid)
 	if IrcBridge.config.enableNotify == true then
 		if pid ~= nil and Players[pid]:IsLoggedIn() then
-			-- -- Lets Make sure this gets reset
-			-- if relayData[playerName].warned == nil or  then
-			-- 	relayData[playerName].warned = false
-			-- end
-			-- if relayData[playerName].filteredCount > 0 then
-			-- 	relayData[playerName].filteredCount = 0
-			-- end
 			local message = "[TES3MP]"
 			playerName = tes3mp.GetName(pid)
 
@@ -339,7 +331,6 @@ customEventHooks.registerHandler("OnServerExit", function()
 	if IrcBridge.config.enableNotify == true then
 		local message = "[TES3MP]"
 		local message = message .. " Server is offline. :warning:"
-		-- local message = "https://cdn.discordapp.com/attachments/546181963468242974/609529176483037225/Server_-_Offline.png"
 		IrcBridge.discordAlert(message)
 	end
 	IrcBridge.Save()
