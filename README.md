@@ -1,3 +1,4 @@
+## This repo is deprecated and no longer being worked on, It's replacement can be here: https://github.com/HotaruBlaze/goTES3MP 
 
 # Discord Relay for TES3MP 0.7.0 (Webhook Branch)
  This is one of my first attempts at scripting for TES3MP and Lua
